@@ -1,5 +1,5 @@
 import React from 'react';
-import PaginaPrincipal from './PaginaPrincipal';
+import PaginaPrincipal from './Components/PaginaPrincipal/PaginaPrincipal';
 function App() {
   return (
     <div className="App">
