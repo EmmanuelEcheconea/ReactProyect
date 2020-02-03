@@ -1,6 +1,5 @@
 import React, {useState,Fragment} from 'react';
-import MenuPrincipal from '../MenuPrincipal/MenuPrincipal';
-import { Button ,Navbar,Alert} from 'react-bootstrap';
+import  { Button, Navbar,Container, Row } from 'react-bootstrap';
 import './PaginaPrincipal.css';
 import {IoIosArrowDropleft} from 'react-icons/io';
 
@@ -10,7 +9,7 @@ function PaginaPrincipal() {
 
   function ElegirOpcionDeMenuPrincipal()
   {
-    if(showMenu == true && botonVolver == false)
+    if(showMenu === true && botonVolver === false)
     {
       setBotonVolver(true);
       setShowMenu(false);
@@ -24,20 +23,29 @@ function PaginaPrincipal() {
 
   return (
     <Fragment >
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand className="nombredelaaplicacion" >Controlador de stock</Navbar.Brand>
-    </Navbar>
-    {botonVolver  && showMenu == false &&
-    <Button onClick={ElegirOpcionDeMenuPrincipal} variant ="outline-primary" className='botonesdemenu'> <IoIosArrowDropleft></IoIosArrowDropleft> volver al menu</Button>
-    }
-    {showMenu && 
-    <div className='contenedordemenudeinicio'>
-      <Button onClick={ElegirOpcionDeMenuPrincipal} variant ="outline-primary" className='botonesdemenu'> Agregar Producto</Button>
-      <Button variant ="outline-primary" className='botonesdemenu'> Quitar Producto</Button>
-      <Button variant ="outline-primary" className='botonesdemenu'> Listar Productos</Button>
-      <Button variant ="outline-primary" className='botonesdemenu'> Listar Proveedores</Button>
-    </div>
-    }
+      
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand className="nombredelaaplicacion" >Controlador de stock</Navbar.Brand>
+      </Navbar>
+    
+      {botonVolver  && showMenu === false &&
+        <Button onClick={ElegirOpcionDeMenuPrincipal} variant ="outline-primary" className='botonesdemenu'> <IoIosArrowDropleft></IoIosArrowDropleft> volver al menu</Button>
+      }
+
+      {showMenu && 
+        <div className='contenedordemenudeinicio'>
+          <Container>
+            <Row>
+              <Button onClick={ElegirOpcionDeMenuPrincipal} variant ="outline-primary" className='botonesdemenu'> Agregar Producto</Button>
+              <Button variant ="outline-primary" className='botonesdemenu'> Quitar Producto</Button>
+            </Row>
+            <Row>
+              <Button variant ="outline-primary" className='botonesdemenu'> Listar Productos</Button>
+              <Button variant ="outline-primary" className='botonesdemenu'> Listar Proveedores</Button>
+            </Row>
+          </Container>
+        </div>
+      }
     </Fragment>
   );
 }
